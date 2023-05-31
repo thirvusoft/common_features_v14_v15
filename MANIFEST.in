@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include common_features_v14 *.css
+recursive-include common_features_v14 *.csv
+recursive-include common_features_v14 *.html
+recursive-include common_features_v14 *.ico
+recursive-include common_features_v14 *.js
+recursive-include common_features_v14 *.json
+recursive-include common_features_v14 *.md
+recursive-include common_features_v14 *.png
+recursive-include common_features_v14 *.py
+recursive-include common_features_v14 *.svg
+recursive-include common_features_v14 *.txt
+recursive-exclude common_features_v14 *.pyc
