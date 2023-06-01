@@ -1323,7 +1323,6 @@ frappe.views.ListView = class ListView extends frappe.views.BaseList {
 					} 
 				});
 			})
-			console.log(cur_data)
 			var d = new frappe.ui.Dialog({
 				size:'large',
 				title: __(doc.name),
