@@ -65,6 +65,7 @@ app_license = "MIT"
 
 # before_install = "common_features_v14.install.before_install"
 # after_install = "common_features_v14.install.after_install"
+after_migrate = ["common_features_v14.install.after_install","common_features_v14.core_backup.file_override.file_override"]
 
 # Uninstallation
 # ------------
