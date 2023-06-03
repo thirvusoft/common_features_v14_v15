@@ -598,8 +598,11 @@ frappe.views.ListView = class ListView extends frappe.views.BaseList {
 		this.render_count();
 	}
 
-	render_list() {
+	async render_list() {
 		// clear rows
+		await frappe.db.get_single_value("Thirvu System Settings", "view_button").then((enabled) => {
+			this.view_button = enabled
+		})
 		this.$result.find(".list-row-container").remove();
 		if (this.data.length > 0) {
 			// append rows
@@ -882,15 +885,19 @@ frappe.views.ListView = class ListView extends frappe.views.BaseList {
 				</span>
 			`;
 		}
-		settings_button += `
-				<span class="list-actions">
-					<button class="btn btn-action-view btn-default btn-xs"
-						data-name="${doc.name}" data-idx="${doc._idx}" data-type="view"
-						title="View Doc">
-						${frappe.utils.icon("unhide", "sm", "like-icon")}
-					</button>
-				</span>
-			`;
+		
+		if(this.view_button) {
+			settings_button += `
+					<span class="list-actions">
+						<button class="btn btn-action-view btn-default btn-xs"
+							data-name="${doc.name}" data-idx="${doc._idx}" data-type="view"
+							title="View Doc">
+							${frappe.utils.icon("unhide", "sm", "like-icon")}
+						</button>
+					</span>
+				`;
+		}
+		
 		const modified = comment_when(doc.modified, true);
 
 		let assigned_to = `<div class="list-assignments">

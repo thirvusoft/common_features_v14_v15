@@ -8,7 +8,9 @@
  "engine": "InnoDB",
  "field_order": [
   "website_section",
-  "switch_to_app"
+  "switch_to_app",
+  "list_view_settings_section",
+  "view_button"
  ],
  "fields": [
   {
@@ -21,12 +23,23 @@
    "fieldname": "switch_to_app",
    "fieldtype": "Check",
    "label": "Show <b>Switch to App</b> in Navbar"
+  },
+  {
+   "fieldname": "list_view_settings_section",
+   "fieldtype": "Section Break",
+   "label": "List View Settings"
+  },
+  {
+   "default": "0",
+   "fieldname": "view_button",
+   "fieldtype": "Check",
+   "label": "View Button"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2023-05-31 18:25:42.533999",
+ "modified": "2023-06-03 16:28:11.802439",
  "modified_by": "Administrator",
  "module": "Common Features V14",
  "name": "Thirvu System Settings",
