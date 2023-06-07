@@ -1705,7 +1705,7 @@ frappe.views.ListView = class ListView extends frappe.views.BaseList {
 		items.push({
 			label: __("Toggle Sidebar", null, "Button in list view menu"),
 			action: () => this.toggle_side_bar(),
-			condition: () => !this.hide_sidebar,
+			condition: () => this.hide_sidebar,
 			standard: true,
 			shortcut: "Ctrl+K",
 		});
@@ -2093,7 +2093,8 @@ function child_table(child_doc){
 				"fieldtype": df.fieldtype,
 				"options": df.options,
 				"in_list_view": 1,
-				"read_only": 1
+				"read_only": 1,
+				"columns":df.columns
 			})
 		} 
 	});

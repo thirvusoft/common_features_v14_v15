@@ -8,6 +8,10 @@ def file_override():
             'source':'/common_features_v14/common_features_v14/core_backup/list_view.js',
             'destination':'/frappe/frappe/public/js/frappe/list/list_view.js'
         },
+        {
+            'source':'/common_features_v14/common_features_v14/core_backup/page.js',
+            'destination':'/frappe/frappe/public/js/frappe/ui/page.js'
+        },
     ]
     l=len(list)
     n=0

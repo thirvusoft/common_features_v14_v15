@@ -1,0 +1,53 @@
+{
+ "actions": [],
+ "autoname": "DD.-.MM.-.YYYY.-.###",
+ "creation": "2023-05-08 19:38:54.295975",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "details"
+ ],
+ "fields": [
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "details",
+   "fieldtype": "Text Editor",
+   "label": "Details",
+   "read_only_depends_on": "eval: !frappe.user.has_role('Thirvu Admin')"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-05-13 12:55:57.596981",
+ "modified_by": "Administrator",
+ "module": "Common Features V14",
+ "name": "Version Update",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "All",
+   "share": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Thirvu Admin",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}
