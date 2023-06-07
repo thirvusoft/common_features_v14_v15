@@ -10,7 +10,13 @@
   "website_section",
   "switch_to_app",
   "list_view_settings_section",
-  "view_button"
+  "view_button",
+  "column_break_d6nrm",
+  "toggle_full_width",
+  "column_break_flz8z",
+  "hide_toggle_sidebar_in_list",
+  "column_break_hlnhp",
+  "hide_toggle_sidebar_in_document"
  ],
  "fields": [
   {
@@ -34,12 +40,43 @@
    "fieldname": "view_button",
    "fieldtype": "Check",
    "label": "View Button"
+  },
+  {
+   "default": "0",
+   "fieldname": "hide_toggle_sidebar_in_list",
+   "fieldtype": "Check",
+   "label": "Hide Toggle Sidebar in List"
+  },
+  {
+   "fieldname": "column_break_d6nrm",
+   "fieldtype": "Section Break",
+   "label": "Toggle Button"
+  },
+  {
+   "default": "0",
+   "fieldname": "hide_toggle_sidebar_in_document",
+   "fieldtype": "Check",
+   "label": "Hide Toggle Sidebar in Document"
+  },
+  {
+   "default": "0",
+   "fieldname": "toggle_full_width",
+   "fieldtype": "Check",
+   "label": "Toggle Full Width"
+  },
+  {
+   "fieldname": "column_break_flz8z",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_hlnhp",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2023-06-03 16:28:11.802439",
+ "modified": "2023-06-07 11:27:27.450097",
  "modified_by": "Administrator",
  "module": "Common Features V14",
  "name": "Thirvu System Settings",
@@ -52,6 +89,16 @@
    "print": 1,
    "read": 1,
    "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "All",
    "share": 1,
    "write": 1
   }
