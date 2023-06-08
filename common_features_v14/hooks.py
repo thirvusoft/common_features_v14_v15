@@ -29,7 +29,9 @@ app_include_js = ["common_features_v14.bundle.js"]
 # page_js = {"page" : "public/js/file.js"}
 
 # include js in doctype views
-# doctype_js = {"doctype" : "public/js/doctype.js"}
+doctype_js = {
+    "Task" : "/common_features_v14/custom/js/task.js"
+    }
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
@@ -103,13 +105,11 @@ after_migrate = ["common_features_v14.install.after_install","common_features_v1
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-#	"*": {
-#		"on_update": "method",
-#		"on_cancel": "method",
-#		"on_trash": "method"
-#	}
-# }
+doc_events = {
+	"Task": {
+		"validate": "common_features_v14.common_features_v14.custom.py.task.auto_repeat",
+	}
+}
 
 # Scheduled Tasks
 # ---------------
