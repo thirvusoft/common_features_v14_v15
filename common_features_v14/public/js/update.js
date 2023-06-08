@@ -21,7 +21,7 @@ common_features_v14.update_indicator = function (link) {
     );
 }
 
-document.addEventListener("DOMContentLoaded", function (event) {
+$(document).ready(function () {
     frappe.realtime.on("custom-version-update", function ({ link }) {
         common_features_v14.update_indicator(link)
     });
