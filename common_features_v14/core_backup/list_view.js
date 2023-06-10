@@ -871,6 +871,7 @@ frappe.views.ListView = class ListView extends frappe.views.BaseList {
 	}
 
 	get_meta_html(doc) {
+		//thirvu changes
 		let html = "";
 
 		let settings_button = '';
@@ -897,7 +898,7 @@ frappe.views.ListView = class ListView extends frappe.views.BaseList {
 					</span>
 				`;
 		}
-		
+		//end
 		const modified = comment_when(doc.modified, true);
 
 		let assigned_to = `<div class="list-assignments">
@@ -1275,6 +1276,7 @@ frappe.views.ListView = class ListView extends frappe.views.BaseList {
 			e.stopPropagation();
 			return false;
 		});
+		//thirvu changes
 		this.$result.on("click", ".btn-action-view", async (e) => {
 			const $button = $(e.currentTarget);
 			e.stopPropagation();
@@ -1345,6 +1347,7 @@ frappe.views.ListView = class ListView extends frappe.views.BaseList {
 			e.stopPropagation();
 			return false;
 		});
+		//end
 	}
 	
 	setup_check_events() {
@@ -2082,7 +2085,7 @@ frappe.get_list_view = (doctype) => {
 	let route = `List/${doctype}/List`;
 	return frappe.views.list_view[route];
 };
-
+//thirvu changes
 function child_table(child_doc){
 	var cur_data =[]
 	frappe.get_meta(child_doc).fields.forEach(function (df) {
