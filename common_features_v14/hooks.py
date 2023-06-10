@@ -30,7 +30,8 @@ app_include_js = ["common_features_v14.bundle.js"]
 
 # include js in doctype views
 doctype_js = {
-    "Task" : "/common_features_v14/custom/js/task.js"
+    "Task" : "/common_features_v14/custom/js/task.js",
+    "ToDo" : "/common_features_v14/custom/js/todo.js"
     }
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
@@ -107,6 +108,9 @@ after_migrate = ["common_features_v14.install.after_install","common_features_v1
 
 doc_events = {
 	"Task": {
+		"validate": "common_features_v14.common_features_v14.custom.py.task.auto_repeat",
+	},
+    "ToDo": {
 		"validate": "common_features_v14.common_features_v14.custom.py.task.auto_repeat",
 	}
 }

@@ -7,3 +7,4 @@ def custom_fields():
     make_property_setter("Customize Form Field", "print_hide", "label", "In List Preview", "Data")
     make_property_setter("Custom Field", "print_hide", "label", "In List Preview", "Data")
     make_property_setter("Task", "", "allow_auto_repeat", "1", "Check", for_doctype=True)
+    make_property_setter("ToDo", "", "allow_auto_repeat", "1", "Check", for_doctype=True)

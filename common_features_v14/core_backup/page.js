@@ -168,11 +168,13 @@ frappe.ui.Page = class Page {
 	async setup_sidebar_toggle() {
 		let sidebar_toggle = $(".page-head").find(".sidebar-toggle-btn");
 		let sidebar_wrapper = this.wrapper.find(".layout-side-section");
+		//thirvu change
 		await frappe.db.get_single_value("Thirvu System Settings", "hide_toggle_sidebar_in_document").then((enabled) => {
 			if(enabled){
 				sidebar_wrapper.css("display","none")
 			}
 		})
+		//end
 		if (this.disable_sidebar_toggle || !sidebar_wrapper.length) {
 			sidebar_toggle.remove();
 		} else {
