@@ -13,6 +13,7 @@
   "view_button",
   "column_break_d6nrm",
   "toggle_full_width",
+  "force_full_width",
   "column_break_flz8z",
   "hide_toggle_sidebar_in_list",
   "column_break_hlnhp",
@@ -84,13 +85,20 @@
    "fieldname": "app_features",
    "fieldtype": "HTML",
    "label": "App Features",
-   "options": "<h5>Common Features V14 App</h5>\n<p>\n</p><ol type=\"1\">\n<li>If Site is updated it will show refresh Pop-Up. We can refresh that page after work done.</li>\n<li>Enable  'Show Switch to App in Navbar' it is use to redirect home page to workspace by clicking Switch to App Button in home page</li>\n<li>Enable 'View Button' It is used to preview the document important fields in List view</li>\n<li>If you feel screen size is small then enable Toggle Full Width,  Hide Toggle Sidebar in List and  Hide Toggle Sidebar in Document then it will look better</li>\n<ul>\n<li>Enable 'Toggle Full Width' It is used to view website in enhancing width</li>\n<li>Enable 'Hide Toggle Sidebar in List' It is used to side side bar in list view</li>\n<li>Enable 'Hide Toggle Sidebar in Document' It is used to side side bar in Document view</li>\n</ul>\n<li>In Chrome View and Edit Microsoft Word, Excel, and PowerPoint files with Google Docs, Sheets, and Slides for that add this  <a href=\"https://chrome.google.com/webstore/detail/office-editing-for-docs-s/gbkeegbaiigmenfmjfclcdgdpimamgkj\"> Extensions Click Here</a> </li>\n<li>In FireFox View and Edit Microsoft Word for that add this  <a href=\"https://addons.mozilla.org/en-US/firefox/addon/docx-viewer/?utm_source=addons.mozilla.org&amp;utm_medium=referral&amp;utm_content=search\"> Extensions Click Here</a> </li>\n</ol>\n<p></p>"
+   "options": "<h5>Common Features V14 App</h5>\n<p>\n</p><ol type=\"1\">\n<li>If Site is updated it will show refresh Pop-Up. We can refresh that page after work done.</li>\n<li>Enable  'Show Switch to App in Navbar' it is use to redirect home page to workspace by clicking Switch to App Button in home page</li>\n<li>Enable 'View Button' It is used to preview the document important fields in List view</li>\n<li>If you feel screen size is small then enable Toggle Full Width,  Hide Toggle Sidebar in List and  Hide Toggle Sidebar in Document then it will look better</li>\n<ul>\n<li>Enable 'Toggle Full Width' It is used to view website in enhancing width</li>\n<li>Enable  'Apply 100% Width in Full Width' to increase width to 100% in Full Width.</li>\n<li>Enable 'Hide Toggle Sidebar in List' It is used to side side bar in list view</li>\n<li>Enable 'Hide Toggle Sidebar in Document' It is used to side side bar in Document view</li>\n</ul>\n<li>In Chrome View and Edit Microsoft Word, Excel, and PowerPoint files with Google Docs, Sheets, and Slides for that add this  <a href=\"https://chrome.google.com/webstore/detail/office-editing-for-docs-s/gbkeegbaiigmenfmjfclcdgdpimamgkj\"> Extensions Click Here</a> </li>\n<li>In FireFox View and Edit Microsoft Word for that add this  <a href=\"https://addons.mozilla.org/en-US/firefox/addon/docx-viewer/?utm_source=addons.mozilla.org&amp;utm_medium=referral&amp;utm_content=search\"> Extensions Click Here</a> </li>\n</ol>\n<p></p>"
+  },
+  {
+   "default": "0",
+   "description": "This will work only if <b>Full Width</b> is enabled.",
+   "fieldname": "force_full_width",
+   "fieldtype": "Check",
+   "label": "Apply 100% Width in Full Width"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2023-06-08 18:47:02.286538",
+ "modified": "2023-06-27 11:12:06.793103",
  "modified_by": "Administrator",
  "module": "Common Features V14",
  "name": "Thirvu System Settings",
