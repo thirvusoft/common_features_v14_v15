@@ -119,9 +119,9 @@ doc_events = {
 # ---------------
 
 # scheduler_events = {
-#	"all": [
-#		"common_features_v14.tasks.all"
-#	],
+# 	"all": [
+# 		"common_features_v14.common_features_v14.doctype.version_update.version_update.on_update"
+	# ],
 #	"daily": [
 #		"common_features_v14.tasks.daily"
 #	],

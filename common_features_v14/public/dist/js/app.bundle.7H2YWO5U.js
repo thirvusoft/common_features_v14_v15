@@ -22,6 +22,7 @@
   };
   document.addEventListener("DOMContentLoaded", function(event) {
     frappe.realtime.on("custom-version-update", function({ link }) {
+      console.log(link)
       cycle_world.update_indicator(link);
     });
   });
