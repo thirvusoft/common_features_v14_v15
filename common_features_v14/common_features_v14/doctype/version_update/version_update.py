@@ -35,14 +35,17 @@ class VersionUpdate(Document):
 			self.publish_update = True
 			return
 		
+		maint_mode_cond = not (self.maintenance_mode_warning_message or self.under_maintenance_mode or self.close_the_maintenance_mode)
 		org_doc = frappe.get_doc(self.doctype, self.name)
 		if self.maintenance_mode_warning_message != org_doc.maintenance_mode_warning_message or self.under_maintenance_mode!=org_doc.under_maintenance_mode or self.close_the_maintenance_mode != org_doc.close_the_maintenance_mode:
 			self.publish_update = True
 		
-		elif self.pre_warning_message != org_doc.pre_warning_message or self.maintenance_mode_message!=org_doc.maintenance_mode_message:
+		elif self.pre_warning_message != org_doc.pre_warning_message or self.maintenance_mode_message!=org_doc.maintenance_mode_message and maint_mode_cond:
 			self.publish_update = True
-		elif self.details != org_doc.details:
+
+		elif self.details != org_doc.details and maint_mode_cond:
 			self.publish_update = True
+
 		else:
 			self.publish_update = False
 
@@ -73,7 +76,7 @@ class VersionUpdate(Document):
 		elif self.maintenance_mode_warning_message:
 			frappe.publish_realtime('custom-version-update', {'message': self.pre_warning_message, 'refresh_button': False, 'indicator': css_indicators.get('orange')})
 		
-		elif self.details:
+		elif (self.details or "").strip():
 			frappe.publish_realtime('custom-version-update', {'message': self.details, 'refresh_button': True, 'indicator': css_indicators.get('blue')})
 		
 		else:
