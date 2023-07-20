@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["../../../../../../../../../tmp/tmp-31711-41kjYQHA6VC8/common_features_v14/common_features_v14/public/common_features_v14.bundle.css"],
-  "sourcesContent": [":root {\n  --top-navhi: 0px;\n}\n\n.app-update {\n  width: 100%;\n  color: var(--text-on-blue);\n  padding: 0.5vh 5%;\n  background: var(--bg-blue);\n  border-radius: 1.5vh;\n  margin: 0.25vh 1vh;\n  position: -webkit-sticky;\n  position: sticky;\n  top: 0;\n  height: 40px;\n  z-index: 4;\n}\n\n.app-update-refresh {\n  color: var(--text-on-blue);\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  font-weight: bold;\n}\n\n.version-update-link {\n  text-decoration: underline;\n}\n\n.sticky-top {\n  position: -webkit-sticky;\n  position: sticky;\n  top: var(--top-navhi) !important;\n  z-index: 1020;\n}\n\nbody.full-width .container {\n  width: var(--thirvu-full-width, 90%) !important;\n}"],
-  "mappings": ";AAAA;AACE;AAAA;AAGF;AACE;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AAAA;AAGF;AACE;AACA;AACA;AACA;AACA;AAAA;AAGF;AACE;AAAA;AAGF;AACE;AACA;AACA;AACA;AAAA;AAGF;AACE;AAAA;",
-  "names": []
-}
