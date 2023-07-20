@@ -118,10 +118,10 @@ doc_events = {
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
-#	"all": [
-#		"common_features_v14.tasks.all"
-#	],
+scheduler_events = {
+	"cron": {
+		"* * * * *": "common_features_v14.common_features_v14.doctype.version_update.version_update.update_maintenance_mode_on"
+	},
 #	"daily": [
 #		"common_features_v14.tasks.daily"
 #	],
@@ -134,7 +134,7 @@ doc_events = {
 #	"monthly": [
 #		"common_features_v14.tasks.monthly"
 #	],
-# }
+}
 
 # Testing
 # -------

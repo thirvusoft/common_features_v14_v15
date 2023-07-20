@@ -1,33 +1,48 @@
-:root{
-	--top-navhi: 0px;
+:root {
+    --top-navhi: 0px;
 }
+
+.app-update-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    position: sticky;
+    z-index: 999999;
+}
+
 .app-update {
     width: 100%;
-    color: var(--text-on-blue);
     padding: 0.5vh 5%;
-    background: var(--bg-blue);
     border-radius: 1.5vh;
     margin: 0.25vh 1vh;
     position: sticky;
     top: 0;
-    height:40px;
+    height: 40px;
     z-index: 4;
+    transition: 0.5s;
+}
+
+.app-update-transform-css {
+    transform: scale(0.1);
 }
 
 .app-update-refresh {
-    color: var(--text-on-blue);
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-weight: bold;
+    width: 100%;
+    font-size: 140%;
 }
 
 .version-update-link {
     text-decoration: underline;
 }
+
 .sticky-top {
-	position: -webkit-sticky;
-	position: sticky;
-	top: var(--top-navhi)!important;
-	z-index: 1020;
+    position: -webkit-sticky;
+    position: sticky;
+    top: var(--top-navhi) !important;
+    z-index: 1020;
 }

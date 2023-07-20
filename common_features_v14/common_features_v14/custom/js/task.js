@@ -1,7 +1,9 @@
 frappe.ui.form.on('Task', {
     refresh: function(frm){
-		    document.querySelectorAll("[data-fieldname='view_auto_repeat_details']")[1].style.color = 'white'
-        document.querySelectorAll("[data-fieldname='view_auto_repeat_details']")[1].style.backgroundColor = '#4d79ff'
+        document.querySelectorAll("button[data-fieldname='view_auto_repeat_details']")[1].style.color = 'white'
+        document.querySelectorAll("button[data-fieldname='view_auto_repeat_details']")[1].style.backgroundColor = '#4d79ff'
+    
+		
         frappe.call({
           method: "common_features_v14.common_features_v14.custom.py.task.get_auto_repeat_schedule",
           args: {

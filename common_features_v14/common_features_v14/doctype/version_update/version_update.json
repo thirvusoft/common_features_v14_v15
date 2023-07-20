@@ -6,23 +6,134 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "details"
+  "refresh_indicator",
+  "column_break_27z6x",
+  "maintenance_mode",
+  "refresh_indicator_section",
+  "details",
+  "maintenance_mode_section",
+  "maintenance_mode_warning_message",
+  "pre_warning_message",
+  "maintenance_mode_on_at",
+  "column_break_omjuw",
+  "under_maintenance_mode",
+  "maintenance_mode_message",
+  "column_break_byd5m",
+  "close_the_maintenance_mode",
+  "success_message",
+  "other_details_section",
+  "publish_update"
  ],
  "fields": [
   {
    "allow_in_quick_entry": 1,
    "fieldname": "details",
-   "fieldtype": "Text Editor",
-   "label": "Details",
+   "fieldtype": "Small Text",
+   "label": "Refresh Indicator Message",
    "read_only_depends_on": "eval: !frappe.user.has_role('Thirvu Admin')"
+  },
+  {
+   "depends_on": "eval: doc.maintenance_mode",
+   "fieldname": "maintenance_mode_section",
+   "fieldtype": "Section Break",
+   "label": "Maintenance Mode"
+  },
+  {
+   "default": "0",
+   "fieldname": "close_the_maintenance_mode",
+   "fieldtype": "Check",
+   "label": "Close the maintenance Mode"
+  },
+  {
+   "fieldname": "success_message",
+   "fieldtype": "Small Text",
+   "label": "Success Message",
+   "mandatory_depends_on": "eval: doc.close_the_maintenance_mode"
+  },
+  {
+   "fieldname": "pre_warning_message",
+   "fieldtype": "Small Text",
+   "label": "Pre Warning Alert Message",
+   "mandatory_depends_on": "eval: doc.maintenance_mode_warning_message",
+   "read_only_depends_on": "eval: doc.under_maintenance_mode || doc.close_the_maintenance_mode"
+  },
+  {
+   "default": "0",
+   "fieldname": "under_maintenance_mode",
+   "fieldtype": "Check",
+   "label": "Under Maintenance Mode",
+   "read_only_depends_on": "eval: doc.close_the_maintenance_mode"
+  },
+  {
+   "fieldname": "maintenance_mode_message",
+   "fieldtype": "Small Text",
+   "label": "Maintenance Mode Message",
+   "mandatory_depends_on": "eval: doc.under_maintenance_mode || doc.maintenance_mode_on_at",
+   "read_only_depends_on": "eval: doc.close_the_maintenance_mode"
+  },
+  {
+   "fieldname": "column_break_omjuw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_byd5m",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "other_details_section",
+   "fieldtype": "Section Break",
+   "hidden": 1,
+   "label": "Other Details"
+  },
+  {
+   "default": "0",
+   "fieldname": "publish_update",
+   "fieldtype": "Check",
+   "label": "Publish Update"
+  },
+  {
+   "default": "0",
+   "fieldname": "maintenance_mode_warning_message",
+   "fieldtype": "Check",
+   "label": "Maintenance Mode Warning Message",
+   "read_only_depends_on": "eval: doc.under_maintenance_mode || doc.close_the_maintenance_mode"
+  },
+  {
+   "fieldname": "maintenance_mode_on_at",
+   "fieldtype": "Datetime",
+   "label": "Maintenance Mode On At",
+   "read_only_depends_on": "eval: doc.under_maintenance_mode || doc.close_the_maintenance_mode"
+  },
+  {
+   "default": "0",
+   "fieldname": "refresh_indicator",
+   "fieldtype": "Check",
+   "label": "Refresh Indicator"
+  },
+  {
+   "fieldname": "column_break_27z6x",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "maintenance_mode",
+   "fieldtype": "Check",
+   "label": "Maintenance Mode"
+  },
+  {
+   "depends_on": "eval: doc.refresh_indicator",
+   "fieldname": "refresh_indicator_section",
+   "fieldtype": "Section Break",
+   "label": "Refresh Indicator"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-05-13 12:55:57.596981",
+ "modified": "2023-07-20 17:42:07.739512",
  "modified_by": "Administrator",
  "module": "Common Features V14",
  "name": "Version Update",
+ "naming_rule": "Expression (old style)",
  "owner": "Administrator",
  "permissions": [
   {
@@ -45,9 +156,23 @@
    "role": "Thirvu Admin",
    "share": 1,
    "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "select": 1,
+   "share": 1,
+   "write": 1
   }
  ],
- "quick_entry": 1,
  "sort_field": "modified",
- "sort_order": "DESC"
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
 }
