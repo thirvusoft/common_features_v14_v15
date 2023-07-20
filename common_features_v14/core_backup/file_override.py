@@ -4,18 +4,10 @@ import shutil
 from frappe.utils import update_progress_bar
 def file_override():
     list = [
-        {
-            'source':'/common_features_v14/common_features_v14/core_backup/list_view.js',
-            'destination':'/frappe/frappe/public/js/frappe/list/list_view.js'
-        },
-        {
-            'source':'/common_features_v14/common_features_v14/core_backup/page.js',
-            'destination':'/frappe/frappe/public/js/frappe/ui/page.js'
-        },
-        {
-            'source':'/common_features_v14/common_features_v14/core_backup/base_list.js',
-            'destination':'/frappe/frappe/public/js/frappe/list/base_list.js'
-        },
+        # {
+        #     'source':'/common_features_v14/common_features_v14/core_backup/base_list.js',
+        #     'destination':'/frappe/frappe/public/js/frappe/list/base_list.js'
+        # },
     ]
     l=len(list)
     n=0
