@@ -130,7 +130,7 @@ def update_maintenance_mode_on():
 		    vu.name
 		FROM `tabVersion Update` vu
 		WHERE
-		    vu.maintenance_mode = 1
+		    vu.maintenance_mode = 1 AND
 			vu.maintenance_mode_warning_message = 1 AND
 			IFNULL(vu.maintenance_mode_on_at, '') != '' AND
 			vu.maintenance_mode_on_at <= NOW() AND
