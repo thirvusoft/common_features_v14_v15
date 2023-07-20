@@ -44,12 +44,14 @@
   {
    "fieldname": "success_message",
    "fieldtype": "Small Text",
-   "label": "Success Message"
+   "label": "Success Message",
+   "mandatory_depends_on": "eval: doc.close_the_maintenance_mode"
   },
   {
    "fieldname": "pre_warning_message",
    "fieldtype": "Small Text",
    "label": "Pre Warning Alert Message",
+   "mandatory_depends_on": "eval: doc.maintenance_mode_warning_message",
    "read_only_depends_on": "eval: doc.under_maintenance_mode || doc.close_the_maintenance_mode"
   },
   {
@@ -63,6 +65,7 @@
    "fieldname": "maintenance_mode_message",
    "fieldtype": "Small Text",
    "label": "Maintenance Mode Message",
+   "mandatory_depends_on": "eval: doc.under_maintenance_mode || doc.maintenance_mode_on_at",
    "read_only_depends_on": "eval: doc.close_the_maintenance_mode"
   },
   {
@@ -101,7 +104,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-07-20 11:55:16.199012",
+ "modified": "2023-07-20 13:22:51.474643",
  "modified_by": "Administrator",
  "module": "Common Features V14",
  "name": "Version Update",

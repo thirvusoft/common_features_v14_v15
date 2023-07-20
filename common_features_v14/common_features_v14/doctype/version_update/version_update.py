@@ -3,7 +3,6 @@
 
 import frappe
 from frappe.model.document import Document
-from datetime import datetime
 
 class VersionUpdate(Document):
 	def validate_maintenance_mode(self):
