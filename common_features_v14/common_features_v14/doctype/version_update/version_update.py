@@ -11,6 +11,7 @@ class VersionUpdate(Document):
 				vu.name
 			FROM `tabVersion Update` vu
 			WHERE
+				vu.maintenance_mode = 1 AND
 				vu.name != '{self.name}' AND
 				vu.close_the_maintenance_mode = 0 AND
 				(	
@@ -28,59 +29,97 @@ class VersionUpdate(Document):
 					""")
 
 	def validate(self):
-		if self.maintenance_mode_warning_message or self.under_maintenance_mode or self.close_the_maintenance_mode:
-			self.validate_maintenance_mode()
+		if self.maintenance_mode and self.refresh_indicator:
+			frappe.throw("Please choose either <b>Maintenance Mode</b> or <b>Refresh Indicator</b>")
+
+		self.validate_maintenance_mode()
 
 		if not frappe.db.exists(self.doctype, self.name):
 			self.publish_update = True
 			return
 		
-		maint_mode_cond = not (self.maintenance_mode_warning_message or self.under_maintenance_mode or self.close_the_maintenance_mode)
+		maint_mode_cond = (self.maintenance_mode_warning_message or self.under_maintenance_mode or self.close_the_maintenance_mode)
+
 		org_doc = frappe.get_doc(self.doctype, self.name)
-		if self.maintenance_mode_warning_message != org_doc.maintenance_mode_warning_message or self.under_maintenance_mode!=org_doc.under_maintenance_mode or self.close_the_maintenance_mode != org_doc.close_the_maintenance_mode:
-			self.publish_update = True
-		
-		elif self.pre_warning_message != org_doc.pre_warning_message or self.maintenance_mode_message!=org_doc.maintenance_mode_message and maint_mode_cond:
-			self.publish_update = True
+		if self.maintenance_mode:
+			if self.maintenance_mode != org_doc.maintenance_mode:
+				self.publish_update = True
 
-		elif self.details != org_doc.details and maint_mode_cond:
-			self.publish_update = True
+			elif self.maintenance_mode_warning_message != org_doc.maintenance_mode_warning_message or self.under_maintenance_mode!=org_doc.under_maintenance_mode or self.close_the_maintenance_mode != org_doc.close_the_maintenance_mode:
+				self.publish_update = True
+			
+			elif self.pre_warning_message != org_doc.pre_warning_message or self.maintenance_mode_message!=org_doc.maintenance_mode_message and maint_mode_cond:
+				self.publish_update = True
+			
+			else:
+				self.publish_update = False
 
-		else:
-			self.publish_update = False
+		elif self.refresh_indicator:
+			if self.refresh_indicator != org_doc.refresh_indicator:
+				self.publish_update = True
+
+			elif self.details != org_doc.details:
+				self.publish_update = True
+			
+			else:
+				self.publish_update = False
 
 	def on_update(self):
 		if self.publish_update:
-			self.update_maintenance_mode()
+			self.publish_maintenance_mode()
 			frappe.db.set_value(self.doctype, self.name, 'publish_update', 0, update_modified=False)
 			self.reload()
+		else:
+			active_maint_modes = frappe.db.sql(f"""
+						SELECT 
+							vu.name
+						FROM `tabVersion Update` vu
+						WHERE
+				      		vu.refresh_indicator = 1 OR
+				      		(
+								vu.maintenance_mode = 1 AND
+								vu.name != '{self.name}' AND
+								vu.close_the_maintenance_mode = 0 AND
+								(	
+									vu.under_maintenance_mode = 1 OR
+									vu.maintenance_mode_warning_message = 1
+								)
+							)
+					""" ,as_dict = True)
+			if not active_maint_modes:
+				self.clear_maintenance_mode()
 
 	def on_trash(self):
 		if not self.close_the_maintenance_mode and (self.under_maintenance_mode or self.maintenance_mode_warning_message or self.details):
 			self.clear_maintenance_mode()
 			frappe.msgprint("Maintenance mode message cleared.")
 
-	def update_maintenance_mode(self):
+	def publish_maintenance_mode(self):
 		css_indicators = {
 			'green': 'indicator-pill green',
 			'orange': 'indicator-pill orange',
 			'red': 'indicator-pill red',
 			'blue': 'indicator-pill blue'
 		}
-		if self.close_the_maintenance_mode:
-			frappe.publish_realtime('custom-version-update', {'message': self.success_message, 'refresh_button': True, 'indicator': css_indicators.get('green')})
-		
-		elif self.under_maintenance_mode:
-			frappe.publish_realtime('custom-version-update', {'message': self.maintenance_mode_message, 'refresh_button': False, 'indicator': css_indicators.get('red')})
-		
-		elif self.maintenance_mode_warning_message:
-			frappe.publish_realtime('custom-version-update', {'message': self.pre_warning_message, 'refresh_button': False, 'indicator': css_indicators.get('orange')})
-		
-		elif (self.details or "").strip():
-			frappe.publish_realtime('custom-version-update', {'message': self.details, 'refresh_button': True, 'indicator': css_indicators.get('blue')})
-		
-		else:
-			self.clear_maintenance_mode()
+		if self.maintenance_mode:
+			if self.close_the_maintenance_mode:
+				frappe.publish_realtime('custom-version-update', {'message': self.success_message, 'refresh_button': True, 'indicator': css_indicators.get('green')})
+			
+			elif self.under_maintenance_mode:
+				frappe.publish_realtime('custom-version-update', {'message': self.maintenance_mode_message, 'refresh_button': False, 'indicator': css_indicators.get('red')})
+			
+			elif self.maintenance_mode_warning_message:
+				frappe.publish_realtime('custom-version-update', {'message': self.pre_warning_message, 'refresh_button': False, 'indicator': css_indicators.get('orange')})
+			
+			else:
+				self.clear_maintenance_mode()
+
+		elif self.refresh_indicator:
+			if (self.details or "").strip():
+				frappe.publish_realtime('custom-version-update', {'message': self.details, 'refresh_button': True, 'indicator': css_indicators.get('blue')})
+			
+			else:
+				self.clear_maintenance_mode()
 	
 	def clear_maintenance_mode(self):
 		frappe.publish_realtime('clear-custom-version-update')
@@ -91,6 +130,7 @@ def update_maintenance_mode_on():
 		    vu.name
 		FROM `tabVersion Update` vu
 		WHERE
+		    vu.maintenance_mode = 1
 			vu.maintenance_mode_warning_message = 1 AND
 			IFNULL(vu.maintenance_mode_on_at, '') != '' AND
 			vu.maintenance_mode_on_at <= NOW() AND
@@ -131,6 +171,7 @@ def check_maintenance_mode():
 					END as indicator
 				FROM `tabVersion Update` vu
 				WHERE
+					vu.maintenance_mode = 1 AND
 					vu.close_the_maintenance_mode = 0 AND
 					(	
 						vu.under_maintenance_mode = 1 OR

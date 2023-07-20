@@ -6,6 +6,10 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "refresh_indicator",
+  "column_break_27z6x",
+  "maintenance_mode",
+  "refresh_indicator_section",
   "details",
   "maintenance_mode_section",
   "maintenance_mode_warning_message",
@@ -25,12 +29,11 @@
    "allow_in_quick_entry": 1,
    "fieldname": "details",
    "fieldtype": "Small Text",
-   "label": "Normal Version Update Details",
+   "label": "Refresh Indicator Message",
    "read_only_depends_on": "eval: !frappe.user.has_role('Thirvu Admin')"
   },
   {
-   "collapsible": 1,
-   "collapsible_depends_on": "eval: doc.pre_warning_message || doc.under_maintenance_mode || doc.close_the_maintenance_mode",
+   "depends_on": "eval: doc.maintenance_mode",
    "fieldname": "maintenance_mode_section",
    "fieldtype": "Section Break",
    "label": "Maintenance Mode"
@@ -100,11 +103,33 @@
    "fieldtype": "Datetime",
    "label": "Maintenance Mode On At",
    "read_only_depends_on": "eval: doc.under_maintenance_mode || doc.close_the_maintenance_mode"
+  },
+  {
+   "default": "0",
+   "fieldname": "refresh_indicator",
+   "fieldtype": "Check",
+   "label": "Refresh Indicator"
+  },
+  {
+   "fieldname": "column_break_27z6x",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "maintenance_mode",
+   "fieldtype": "Check",
+   "label": "Maintenance Mode"
+  },
+  {
+   "depends_on": "eval: doc.refresh_indicator",
+   "fieldname": "refresh_indicator_section",
+   "fieldtype": "Section Break",
+   "label": "Refresh Indicator"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-07-20 13:22:51.474643",
+ "modified": "2023-07-20 17:42:07.739512",
  "modified_by": "Administrator",
  "module": "Common Features V14",
  "name": "Version Update",

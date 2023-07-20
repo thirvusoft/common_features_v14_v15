@@ -33,6 +33,7 @@
     align-items: center;
     font-weight: bold;
     width: 100%;
+    font-size: 140%;
 }
 
 .version-update-link {
