@@ -8,36 +8,32 @@
  "field_order": [
   "details",
   "maintenance_mode_section",
-  "message_display",
-  "alert_message",
-  "message_start_at",
-  "maintenance_check",
-  "maintenance_message",
+  "maintenance_mode_warning_message",
+  "pre_warning_message",
+  "maintenance_mode_on_at",
+  "column_break_omjuw",
+  "under_maintenance_mode",
+  "maintenance_mode_message",
+  "column_break_byd5m",
   "close_the_maintenance_mode",
-  "success_message"
+  "success_message",
+  "other_details_section",
+  "publish_update"
  ],
  "fields": [
   {
    "allow_in_quick_entry": 1,
    "fieldname": "details",
    "fieldtype": "Small Text",
-   "label": "Details",
+   "label": "Normal Version Update Details",
    "read_only_depends_on": "eval: !frappe.user.has_role('Thirvu Admin')"
   },
   {
+   "collapsible": 1,
+   "collapsible_depends_on": "eval: doc.pre_warning_message || doc.under_maintenance_mode || doc.close_the_maintenance_mode",
    "fieldname": "maintenance_mode_section",
    "fieldtype": "Section Break",
    "label": "Maintenance Mode"
-  },
-  {
-   "fieldname": "message_start_at",
-   "fieldtype": "Datetime",
-   "label": "Message Start At"
-  },
-  {
-   "fieldname": "maintenance_message",
-   "fieldtype": "Small Text",
-   "label": "Maintenance Message"
   },
   {
    "default": "0",
@@ -51,26 +47,61 @@
    "label": "Success Message"
   },
   {
-   "fieldname": "alert_message",
+   "fieldname": "pre_warning_message",
    "fieldtype": "Small Text",
-   "label": "Alert Message"
+   "label": "Pre Warning Alert Message",
+   "read_only_depends_on": "eval: doc.under_maintenance_mode || doc.close_the_maintenance_mode"
   },
   {
    "default": "0",
-   "fieldname": "maintenance_check",
+   "fieldname": "under_maintenance_mode",
    "fieldtype": "Check",
-   "label": "Maintenance Mode On"
+   "label": "Under Maintenance Mode",
+   "read_only_depends_on": "eval: doc.close_the_maintenance_mode"
+  },
+  {
+   "fieldname": "maintenance_mode_message",
+   "fieldtype": "Small Text",
+   "label": "Maintenance Mode Message",
+   "read_only_depends_on": "eval: doc.close_the_maintenance_mode"
+  },
+  {
+   "fieldname": "column_break_omjuw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_byd5m",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "other_details_section",
+   "fieldtype": "Section Break",
+   "hidden": 1,
+   "label": "Other Details"
   },
   {
    "default": "0",
-   "fieldname": "message_display",
+   "fieldname": "publish_update",
    "fieldtype": "Check",
-   "label": "Pre Warning Message"
+   "label": "Publish Update"
+  },
+  {
+   "default": "0",
+   "fieldname": "maintenance_mode_warning_message",
+   "fieldtype": "Check",
+   "label": "Maintenance Mode Warning Message",
+   "read_only_depends_on": "eval: doc.under_maintenance_mode || doc.close_the_maintenance_mode"
+  },
+  {
+   "fieldname": "maintenance_mode_on_at",
+   "fieldtype": "Datetime",
+   "label": "Maintenance Mode On At",
+   "read_only_depends_on": "eval: doc.under_maintenance_mode || doc.close_the_maintenance_mode"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-07-18 16:02:50.599809",
+ "modified": "2023-07-20 11:55:16.199012",
  "modified_by": "Administrator",
  "module": "Common Features V14",
  "name": "Version Update",
