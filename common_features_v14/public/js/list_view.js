@@ -176,16 +176,16 @@ class ListView extends frappe.views.ListView {
 			});
 		}
 
-		// if (frappe.model.can_set_user_permissions(doctype)) {
-		// 	items.push({
-		// 		label: __("User Permissions", null, "Button in list view menu"),
-		// 		action: () =>
-		// 			frappe.set_route("list", "user-permission", {
-		// 				allow: doctype,
-		// 			}),
-		// 		standard: true,
-		// 	});
-		// }
+		if (frappe.model.can_set_user_permissions(doctype)) {
+			items.push({
+				label: __("User Permissions", null, "Button in list view menu"),
+				action: () =>
+					frappe.set_route("list", "user-permission", {
+						allow: doctype,
+					}),
+				standard: true,
+			});
+		}
 
 		if (frappe.user_roles.includes("System Manager")) {
 			items.push({
