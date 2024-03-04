@@ -1,0 +1,61 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-03-04 16:11:57.769862",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "service_type",
+  "labour_cost",
+  "maintenance_cost",
+  "total_value",
+  "serviced_by",
+  "description"
+ ],
+ "fields": [
+  {
+   "fieldname": "service_type",
+   "fieldtype": "Link",
+   "label": "Service Type",
+   "options": "Service Type"
+  },
+  {
+   "fieldname": "labour_cost",
+   "fieldtype": "Float",
+   "label": "Labour Cost"
+  },
+  {
+   "fieldname": "maintenance_cost",
+   "fieldtype": "Float",
+   "label": "Maintenance Cost"
+  },
+  {
+   "fieldname": "total_value",
+   "fieldtype": "Float",
+   "label": "Total Value"
+  },
+  {
+   "fieldname": "serviced_by",
+   "fieldtype": "Data",
+   "label": "Serviced By"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-03-04 16:16:13.091175",
+ "modified_by": "Administrator",
+ "module": "Common Features V14",
+ "name": "Maintenance Details",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
