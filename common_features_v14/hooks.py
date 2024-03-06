@@ -122,6 +122,9 @@ doc_events = {
     "Item":{
 		"autoname":"common_features_v14.common_features_v14.custom.py.item.item_captalize",
 	}
+    # "Vehicle":{
+    #     "on_submit":"common_features_v14.doctype.vehicle_maintenance.vehicle_maintenance.on_submit"
+	# }
 }
 
 # Scheduled Tasks
