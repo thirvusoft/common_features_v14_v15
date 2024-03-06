@@ -1,0 +1,52 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-03-04 15:34:56.350436",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "service_details_section",
+  "service_type",
+  "service_intervel_frequency",
+  "updated_odometer"
+ ],
+ "fields": [
+  {
+   "fieldname": "service_details_section",
+   "fieldtype": "Section Break",
+   "label": "Service Details"
+  },
+  {
+   "fieldname": "service_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Service Type",
+   "options": "Service Type"
+  },
+  {
+   "fieldname": "service_intervel_frequency",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Service Intervel Frequency"
+  },
+  {
+   "fieldname": "updated_odometer",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Updated Odometer"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-03-05 19:05:22.112936",
+ "modified_by": "Administrator",
+ "module": "Common Features V14",
+ "name": "Service Details",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

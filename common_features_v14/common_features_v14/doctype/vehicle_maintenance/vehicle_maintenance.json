@@ -1,0 +1,87 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "VH-.#####",
+ "creation": "2024-03-04 15:59:08.430139",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_gmtf",
+  "date",
+  "vehicle_no",
+  "service_done_at_odometer_value",
+  "amended_from",
+  "vehicle_maintenance_details_section",
+  "maintenance_details"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_gmtf",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Vehicle Maintenance",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "vehicle_no",
+   "fieldtype": "Link",
+   "label": "Vehicle No",
+   "options": "Vehicle"
+  },
+  {
+   "fieldname": "service_done_at_odometer_value",
+   "fieldtype": "Float",
+   "label": "Service Done at Odometer Value"
+  },
+  {
+   "fieldname": "vehicle_maintenance_details_section",
+   "fieldtype": "Section Break",
+   "label": "Vehicle Maintenance Details"
+  },
+  {
+   "fieldname": "maintenance_details",
+   "fieldtype": "Table",
+   "label": "Maintenance Details",
+   "options": "Maintenance Details"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-03-04 16:47:58.285353",
+ "modified_by": "Administrator",
+ "module": "Common Features V14",
+ "name": "Vehicle Maintenance",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
