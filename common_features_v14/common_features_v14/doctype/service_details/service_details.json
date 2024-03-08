@@ -9,8 +9,8 @@
   "service_details_section",
   "service_type",
   "service_intervel_frequency",
-  "updated_odometer",
-  "previous_odometer_value"
+  "current_maintanence_odometer_value",
+  "next_maintanence_odometer_value"
  ],
  "fields": [
   {
@@ -28,26 +28,28 @@
   {
    "fieldname": "service_intervel_frequency",
    "fieldtype": "Float",
+   "hidden": 1,
    "in_list_view": 1,
    "label": "Service Intervel Frequency"
   },
   {
-   "fieldname": "updated_odometer",
+   "fieldname": "current_maintanence_odometer_value",
    "fieldtype": "Float",
    "in_list_view": 1,
-   "label": "Updated Odometer",
+   "label": "Current Maintanence Odometer Value",
    "read_only": 1
   },
   {
-   "fieldname": "previous_odometer_value",
-   "fieldtype": "Data",
-   "label": "Previous Odometer Value"
+   "fieldname": "next_maintanence_odometer_value",
+   "fieldtype": "Float",
+   "label": "Next Maintanence Odometer Value",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-03-07 12:19:12.164269",
+ "modified": "2024-03-08 12:32:29.912488",
  "modified_by": "Administrator",
  "module": "Common Features V14",
  "name": "Service Details",
