@@ -14,3 +14,4 @@ function calculateTotalValue(frm, cdt, cdn) {
     console.log(total_value)
     frappe.model.set_value(cdt, cdn, 'total_value', total_value)
 }
+
