@@ -10,11 +10,8 @@ def send_notification(doc,method):
         "role": ["in", ['Fleet Manager']]
     })
 
-
-    maintenance_details = doc.custom_service_maintanence_details
-
-    if maintenance_details:
-        for maintenance in maintenance_details:
+    if doc.custom_service_maintanence_details:
+        for maintenance in doc.custom_service_maintanence_details:
             if doc.last_odometer == maintenance.current_maintanence_odometer_value:
         
                 if users:

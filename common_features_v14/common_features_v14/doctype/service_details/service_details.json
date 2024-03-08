@@ -42,6 +42,7 @@
   {
    "fieldname": "next_maintanence_odometer_value",
    "fieldtype": "Float",
+   "in_list_view": 1,
    "label": "Next Maintanence Odometer Value",
    "read_only": 1
   }
@@ -49,7 +50,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-03-08 12:32:29.912488",
+ "modified": "2024-03-08 15:35:38.111325",
  "modified_by": "Administrator",
  "module": "Common Features V14",
  "name": "Service Details",

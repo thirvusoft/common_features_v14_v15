@@ -34,9 +34,8 @@
   }
  ],
  "index_web_pages_for_search": 1,
- "is_submittable": 1,
  "links": [],
- "modified": "2024-03-04 15:33:25.574249",
+ "modified": "2024-03-08 15:00:53.089639",
  "modified_by": "Administrator",
  "module": "Common Features V14",
  "name": "Service Type",
@@ -53,7 +52,6 @@
    "report": 1,
    "role": "System Manager",
    "share": 1,
-   "submit": 1,
    "write": 1
   }
  ],
