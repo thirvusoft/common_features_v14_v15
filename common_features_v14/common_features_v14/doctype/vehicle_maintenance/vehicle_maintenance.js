@@ -4,7 +4,7 @@ frappe.ui.form.on('Vehicle Maintenance', {
     vehicle_no: async function(frm){
         if  (frm.doc.vehicle_no){
             await frappe.call({
-            method: "common_features_v14.common_features_v14.custom.py.vehicle_maintanence_filter.service_maintanence_details",
+            method: "common_features_v14.common_features_v14.doctype.vehicle_maintenance.vehicle_maintenance.service_maintanence_details",
             args: { 
                 vehicle_no:frm.doc.vehicle_no
             },

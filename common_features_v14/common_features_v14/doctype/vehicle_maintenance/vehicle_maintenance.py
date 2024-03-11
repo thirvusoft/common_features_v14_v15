@@ -33,6 +33,8 @@ def odometer_cancel(self):
 					details.current_maintanence_odometer_value= vehicle.last_odometer
 					vehicle.save()
 
+
+
 #Vehicle maintenance Doc filter
 
 @frappe.whitelist()
