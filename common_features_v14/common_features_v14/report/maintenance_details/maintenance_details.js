@@ -4,7 +4,7 @@
 frappe.query_reports["Maintenance Details"] = {
 	"filters": [{
 		fieldname:"vehicle_no",
-		label: __("ID"),
+		label: __("Vehicle No"),
 		fieldtype: "Link",
 		options: "Vehicle"
 	},
@@ -12,7 +12,12 @@ frappe.query_reports["Maintenance Details"] = {
 		fieldname:"date",
 		label: __("Date"),
 		fieldtype: "Date"
-
+	},
+	{
+		fieldname:"service_type",
+		label: __("Service Type"),
+		fieldtype: "Link",
+		options: "Service Type"
 	}
 
 	]

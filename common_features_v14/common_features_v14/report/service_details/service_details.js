@@ -2,10 +2,10 @@
 // For license information, please see license.txt
 
 
-frappe.query_reports["Service Detailss"] = {
+frappe.query_reports["Service Details"] = {
 	"filters": [{
 		fieldname:"name",
-		label: __("ID"),
+		label: __("Vehicle No"),
 		fieldtype: "Link",
 		options: "Vehicle",
 	},
