@@ -14,13 +14,14 @@ class VehicleMaintenance(Document):
 
 
 def odometer_update(self):
-	if self.vehicle_no and self.service_done_at_odometer_value:
+	if self.vehicle_no:
 		vehicle = frappe.get_doc('Vehicle', self.vehicle_no)
 		for service_detail in vehicle.custom_service_maintanence_details:
 			for det in self.maintenance_details:
 				if service_detail.service_type == det.service_type:
-					service_detail.current_maintanence_odometer_value = self.service_done_at_odometer_value
-					service_detail.next_maintanence_odometer_value= vehicle.last_odometer + self.service_done_at_odometer_value
+					service_detail.current_maintanence_odometer_value = det.service_done_at_odometer_value
+					service_detail.next_maintanence_odometer_value= vehicle.last_odometer + det.next_service_odometer_frequency
+					vehicle.last_odometer = det.service_done_at_odometer_value
 					vehicle.save()
 
 def odometer_cancel(self):
@@ -45,8 +46,6 @@ def service_maintanence_details(vehicle_no):
         ser_type.append(i.service_type)
     return ser_type
     
-
-
 
 
 

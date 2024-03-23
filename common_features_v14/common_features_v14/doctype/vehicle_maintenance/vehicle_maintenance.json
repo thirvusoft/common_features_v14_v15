@@ -9,7 +9,7 @@
   "section_break_gmtf",
   "date",
   "vehicle_no",
-  "service_done_at_odometer_value",
+  "current_odometer",
   "amended_from",
   "vehicle_maintenance_details_section",
   "maintenance_details"
@@ -38,13 +38,10 @@
   {
    "fieldname": "vehicle_no",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Vehicle No",
-   "options": "Vehicle"
-  },
-  {
-   "fieldname": "service_done_at_odometer_value",
-   "fieldtype": "Float",
-   "label": "Service Done at Odometer Value"
+   "options": "Vehicle",
+   "reqd": 1
   },
   {
    "fieldname": "vehicle_maintenance_details_section",
@@ -56,12 +53,19 @@
    "fieldtype": "Table",
    "label": "Maintenance Details",
    "options": "Maintenance Details"
+  },
+  {
+   "fetch_from": "vehicle_no.last_odometer",
+   "fieldname": "current_odometer",
+   "fieldtype": "Data",
+   "label": "Current Odometer",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-03-08 15:11:52.213289",
+ "modified": "2024-03-23 14:50:35.607806",
  "modified_by": "Administrator",
  "module": "Common Features V14",
  "name": "Vehicle Maintenance",

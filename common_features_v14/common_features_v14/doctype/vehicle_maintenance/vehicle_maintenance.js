@@ -17,7 +17,7 @@ frappe.ui.form.on('Vehicle Maintenance', {
         frm.set_query("service_type",'maintenance_details',function(){
             return{
                 filters:{
-                    'name1':["in",vno]
+                    'name':["in",vno]
                 }
             }
         })
