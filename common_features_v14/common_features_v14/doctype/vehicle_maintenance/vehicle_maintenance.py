@@ -21,7 +21,7 @@ def odometer_update(self):
 				if service_detail.service_type == det.service_type:
 					service_detail.current_maintanence_odometer_value = det.service_done_at_odometer_value
 					service_detail.next_maintanence_odometer_value= vehicle.last_odometer + det.next_service_odometer_frequency
-					vehicle.last_odometer = det.service_done_at_odometer_value
+					
 					vehicle.save()
 
 def odometer_cancel(self):
