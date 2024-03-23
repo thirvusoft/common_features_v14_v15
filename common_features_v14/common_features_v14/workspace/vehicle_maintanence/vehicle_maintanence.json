@@ -1,0 +1,76 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"mV25mIxPYd\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Vehicle Maintanence</span>\",\"col\":12}},{\"id\":\"leE6jwKtiL\",\"type\":\"paragraph\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Doctypes</span>\",\"col\":12}},{\"id\":\"3cvEeprRAJ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Vehicle\",\"col\":3}},{\"id\":\"qC84l4m14k\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Service Type\",\"col\":3}},{\"id\":\"9XbvPCOUh_\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Vehicle Maintenance\",\"col\":3}},{\"id\":\"Q0b-TZFdtR\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Vehicle Log\",\"col\":3}},{\"id\":\"DtsstmAPw7\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"Pg9KStCJD6\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Reports</b></span>\",\"col\":12}},{\"id\":\"4iE07L5SId\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Maintenance Details\",\"col\":3}},{\"id\":\"QQ2SJ4z4xQ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Service Details\",\"col\":3}}]",
+ "creation": "2024-03-21 18:53:05.303082",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "project",
+ "idx": 0,
+ "indicator_color": "",
+ "is_hidden": 0,
+ "label": "Vehicle Maintanence",
+ "links": [],
+ "modified": "2024-03-22 12:48:41.835810",
+ "modified_by": "Administrator",
+ "module": "Common Features V14",
+ "name": "Vehicle Maintanence",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 28.0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Vehicle",
+   "link_to": "Vehicle",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Vehicle Maintenance",
+   "link_to": "Vehicle Maintenance",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Maintenance Details",
+   "link_to": "Maintenance Details",
+   "type": "Report"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Vehicle Log",
+   "link_to": "Vehicle Log",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Service Details",
+   "link_to": "Service Details",
+   "type": "Report"
+  },
+  {
+   "color": "Red",
+   "doc_view": "List",
+   "label": "Service Type",
+   "link_to": "Service Type",
+   "stats_filter": "[]",
+   "type": "DocType"
+  }
+ ],
+ "title": "Vehicle Maintanence"
+}

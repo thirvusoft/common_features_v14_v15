@@ -112,6 +112,18 @@ doc_events = {
 	},
     "ToDo": {
 		"validate": "common_features_v14.common_features_v14.custom.py.task.auto_repeat",
+	},
+    # "Customer": {
+	# 	"autoname":"common_features_v14.common_features_v14.custom.py.customer.customer_captalize",
+	# },
+    "Lead":{
+		"autoname":"common_features_v14.common_features_v14.custom.py.lead.lead_captalize",
+	},
+    "Item":{
+		"autoname":"common_features_v14.common_features_v14.custom.py.item.item_captalize",
+	},
+    "Vehicle":{
+        "validate":"common_features_v14.common_features_v14.custom.py.vehicle.send_notification"
 	}
 }
 
