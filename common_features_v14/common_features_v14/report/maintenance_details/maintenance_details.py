@@ -19,7 +19,7 @@ def execute(filters=None):
     ]
     
     conditions = []
-    if filters and filters.get("vehicle_no"):
+    if filters and filters.get("vehicle_no"):                
         conditions.append("`tabVehicle Maintenance`.`vehicle_no` = '{0}'".format(filters.get("vehicle_no")))
         
     if filters and filters.get("date"):
@@ -36,7 +36,7 @@ def execute(filters=None):
             `tabMaintenance Details`.`labour_cost` AS labour_cost,
             `tabMaintenance Details`.`maintenance_cost` AS maintenance_cost,
             `tabMaintenance Details`.`total_value` AS total_value,
-            `tabMaintenance Details`.`service_done_at_odometer_value` AS service_done_at_odometer_value,
+            `tabVehicle Maintenance`.`service_done_at_odometer_value` AS service_done_at_odometer_value,
             `tabMaintenance Details`.`next_service_odometer_frequency` AS next_service_odometer_frequency,
             `tabMaintenance Details`.`serviced_by` AS serviced_by
 

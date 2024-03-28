@@ -13,8 +13,7 @@ def execute(filters=None):
         {"label": "Next Maintenance Odometer", "fieldname": "next_maintanence_odometer_value", "fieldtype": "Data"},
         {"label": "Service Type", "fieldname": "service_type", "fieldtype": "Data"}
     ]
-
-
+                                                                                                                                                                                                                                       
     conditions = []
     if filters.get("name"):
         conditions.append("vehicle.name = '{0}'".format(filters.get("name")))
